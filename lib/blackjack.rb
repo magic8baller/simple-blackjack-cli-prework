@@ -49,5 +49,11 @@ end
 #####################################################
 
 def runner
-  # code runner here
+  welcome
+  initial_round
+  prompt_user
+  hit?(current_value) ? deal_card : prompt_user
+  until display_card_total(total) > 21
+    end_game(total)
+  end
 end
