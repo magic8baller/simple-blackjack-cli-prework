@@ -52,10 +52,8 @@ def runner
   welcome
   initial_round
   prompt_user
-  hit?(current_value) ? deal_card : prompt_user
-  until initial_round > 21
-    hit?(current_value)
-    display_card_total(total)
+  hit?(current_value)
+  until display_card_total(total) > 21
+    end_game(total)
   end
-  end_game(total)
 end
