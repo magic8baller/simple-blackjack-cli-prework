@@ -50,9 +50,10 @@ end
 
 def runner
   welcome
-  initial_round
-    until display_card_total(initial_round) > 21
-      hit?(initial_round)
+  card_sum = initial_round
+    until card_sum > 21
+      hit?(sum)
+      display_card_total(sum)
     end
   end_game
 end
