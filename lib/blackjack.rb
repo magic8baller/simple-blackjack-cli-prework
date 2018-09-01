@@ -33,8 +33,6 @@ def hit?(current_value)
   input = get_user_input
   while input != "s" && input != "h"
     invalid_command
-    prompt_user
-    input
   end
   input == "h" ? current_value += deal_card : nil
   return current_value
@@ -42,6 +40,8 @@ end
 
 def invalid_command
   puts "Please enter a valid command"
+  prompt_user
+  input
 end
 
 #####################################################
@@ -51,9 +51,8 @@ end
 def runner
   welcome
   initial_round
-  prompt_user
-  hit?(current_value)
-  until display_card_total(total) > 21
-    end_game(total)
-  end
+    until display_card_total(initial_round) > 21
+      hit?(initial_round)
+    end
+  end_game
 end
